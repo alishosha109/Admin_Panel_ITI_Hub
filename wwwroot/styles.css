@@ -793,6 +793,10 @@ input[type="file"] {
     animation: slide-right 0.5s cubic-bezier(0.250, 0.460, 0.450, 0.940) both;
 }
 
+.disabled {
+    cursor: not-allowed;
+}
+
 @-webkit-keyframes slide-down {
     0% {
         -webkit-transform: translateY(0px);
@@ -1166,3 +1170,4 @@ input[type="file"] {
         float: left;
     }
 }
+
