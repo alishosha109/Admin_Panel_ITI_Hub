@@ -1,0 +1,25 @@
+Controller:
+===========
+
+* ProductController
+
+
+Actions:
+========
+
+* ShowDefaultProduct():
+	Displays ProductCard with Default (Name, Picture, Price, Description)
+
+
+* ShowProductDetails(string Name, string Picture, double Price, string Description) 
+	Displays ProductCard with given details(Name, Picture, Price, Description) "QueryString"
+
+
+Views:
+======
+
+* DefaultProduct.cshtml
+
+* ProductDetails.cshtml
+
+	
