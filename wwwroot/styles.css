@@ -70,9 +70,9 @@ body {
     display: block;
 }
 
-    .dropdown-content a:hover {
-        background-color: #f1f1f1;
-    }
+.dropdown-content a:hover {
+    background-color: #f1f1f1;
+}
 
 .btn {
     padding: 8px 30px;
@@ -94,9 +94,9 @@ body {
     background-color: #6c757d17;
 }
 
-    .regbtn:hover {
-        border: 1px solid black;
-    }
+.regbtn:hover {
+    border: 1px solid black;
+}
 
 .navbarvr {
     background-color: #cd2929;
@@ -162,9 +162,9 @@ body {
     margin-left: 16px;
 }
 
-    .filter-btn:hover {
-        border: 1px solid black;
-    }
+.filter-btn:hover {
+    border: 1px solid black;
+}
 
 .table {
     /*margin-left: 48px*/;
