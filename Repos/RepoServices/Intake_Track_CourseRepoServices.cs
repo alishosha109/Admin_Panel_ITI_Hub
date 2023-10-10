@@ -8,12 +8,13 @@ namespace Admin_Panel_ITI.Repos.RepoServices
 {
     public class Intake_Track_CourseRepoServices : IIntake_Track_CourseRepository
     {
-        public MainDBContext Context { get; set; }
+        private MainDBContext Context { get; set; }
 
         public Intake_Track_CourseRepoServices(MainDBContext context)
         {
             Context = context;
         }
+
         void IIntake_Track_CourseRepository.DeleteIntake_Track_CoursebyCourseID(int courseID)
         {
             var records = Context.Intake_Track_Courses.Where(itc => itc.CourseID == courseID).ToList();
@@ -30,7 +31,6 @@ namespace Admin_Panel_ITI.Repos.RepoServices
             Context.Intake_Track_Courses.RemoveRange(records);
         }
 
-
         void IIntake_Track_CourseRepository.DeleteIntake_Track_CoursebyIntakeID(int intakeID)
         {
             var records = Context.Intake_Track_Courses.Where(itc => itc.IntakeID == intakeID).ToList();
@@ -38,10 +38,6 @@ namespace Admin_Panel_ITI.Repos.RepoServices
 
         }
 
-       
-
-
-        //---//
         public List<Intake_Track_Course> GetTracksByIntakeID(int intakeID)
         {
             return Context.Intake_Track_Courses
@@ -50,7 +46,6 @@ namespace Admin_Panel_ITI.Repos.RepoServices
                 .Include(i=> i.Track)
                 .ToList();
         }
-
 
         void IIntake_Track_CourseRepository.CreateIntake_Track_Course(int intakeID, int trackID, int courseID)
         {
@@ -65,7 +60,19 @@ namespace Admin_Panel_ITI.Repos.RepoServices
             Context.SaveChanges();
         }
 
-        
 
+        List<int> IIntake_Track_CourseRepository.getCoursesForTrack(int? trackID, int? intakeID)
+        {
+            List<int> ids = new List<int>();
+            var records = Context.Intake_Track_Courses.Where(it=>it.TrackID == trackID && it.IntakeID == intakeID)
+                                                      .ToList();
+
+            foreach (var item in records)
+            {
+                ids.Add(item.CourseID);
+            }
+            return ids;
+                                                      
+        }
     }
 }
